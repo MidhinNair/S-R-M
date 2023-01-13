@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Component
 public class StudentsService {
     private int studentIdcount = 1;
-    private List<Student> studentList = new CopyOnWriteArrayList<>();
+    private static List<Student> studentList = new CopyOnWriteArrayList<>();
     public Student addStudent(Student student){
         student.setStudentId(studentIdcount);
         studentList.add(student);
@@ -26,7 +26,7 @@ public class StudentsService {
                 .findFirst()
                 .get();
     }
-    public Student updateStudent(int studentId,Student student){
+    public static Student updateStudent(int studentId, Student student){
           studentList
                 .stream()
                 .forEach(s-> {
